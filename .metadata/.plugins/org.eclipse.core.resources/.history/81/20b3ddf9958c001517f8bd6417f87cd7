@@ -67,30 +67,29 @@ public class EjerciciosBasicos extends ConsoleProgram{
 		return 2;
 	}
 	
-	public void run() {
-		println(multa(60, false));
-		println(multa(66, false));
-		println(multa(86, true));
+/**
+ * 	Otro modo de hacerlo
+ */
+	public int multa1(int velocidad, boolean cumpleaños) {
+		if(cumpleaños) {
+			velocidad = velocidad - 5;
+		}
+		if(velocidad <= 60) {
+		return 0;
+		}
+		
+		if(velocidad > 60 && velocidad <= 80) {
+			return 1;
+		}
+		
+		else {
+			return 2;
+		}
 	}
 	
-///**
-// * 	Otro modo de hacerlo
-// */
-//	public int multa1(int velocidad, boolean cumpleaños) {
-//		if(cumpleaños) {
-//			velocidad = velocidad - 5;
-//		}
-//		if(velocidad <= 60) {
-//		return 0;
-//		}
-//		
-//		if(velocidad > 60 && velocidad <= 80) {
-//			return 1;
-//		}
-//		
-//		else {
-//			return 2;
-//		}
-//	}
-	
+	public void run() {
+		println(multa1(60, false));
+		println(multa1(66, false));
+		println(multa1(86, true));
+	}
 }

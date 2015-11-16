@@ -22,12 +22,6 @@ public class EjerciciosBasicos extends ConsoleProgram{
 		return false;
 	}
 	
-//	public void run() {
-//		println(multa(60, false));
-//		println(multa(65, true));
-//		println(multa(85, true));
-//	}
-	
 /*
  * A2) Estás conduciendo demasiado rápido, y un policía te detiene. Escribir el código
  * para calcular el resultado, codificado como un valor int:
@@ -69,28 +63,7 @@ public class EjerciciosBasicos extends ConsoleProgram{
 	
 	public void run() {
 		println(multa(60, false));
-		println(multa(66, false));
-		println(multa(86, true));
+		println(multa(65, true));
+		println(multa(85, true));
 	}
-	
-///**
-// * 	Otro modo de hacerlo
-// */
-//	public int multa1(int velocidad, boolean cumpleaños) {
-//		if(cumpleaños) {
-//			velocidad = velocidad - 5;
-//		}
-//		if(velocidad <= 60) {
-//		return 0;
-//		}
-//		
-//		if(velocidad > 60 && velocidad <= 80) {
-//			return 1;
-//		}
-//		
-//		else {
-//			return 2;
-//		}
-//	}
-	
 }
