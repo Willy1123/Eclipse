@@ -1,0 +1,18 @@
+/*
+ * Autor: Guillermo Blasco Pérez
+ * 
+ * En este ejercico se trata de ejecutar la traza del parograma
+ * en lápiz y papel. La idea es que si te ha funcionado correctamente
+ * te tiene que salir lo que has hecho tu con la traza.
+ */
+
+import acm.program.*;
+
+public class Misterio2 extends ConsoleProgram{
+
+	public void run() {
+		println("HOLA MUNDO!");
+		println("HOLA MUNDO!");
+	}
+
+}

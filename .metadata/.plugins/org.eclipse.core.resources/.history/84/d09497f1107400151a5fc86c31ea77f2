@@ -1,0 +1,14 @@
+/*
+* ArreglaCarreteraLarga debe colocar un beeper en cada agujero
+*/
+
+public class ArreglaCarreteraLarga extends KarelMejorada {
+
+	public void run() {
+		while (frontIsClear()) {
+			move();
+			rellenaAgujero();
+			move();
+		}
+	}
+}

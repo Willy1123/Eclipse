@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;EjerciciosRepaso&apos; to &apos;EjerciciosBasicos&apos;&#x0D;&#x0A;- Original project: &apos;CodingBat&apos;&#x0D;&#x0A;- Original element: &apos;EjerciciosRepaso&apos;&#x0D;&#x0A;- Renamed element: &apos;EjerciciosBasicos&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;EjerciciosRepaso&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{EjerciciosRepaso.java[EjerciciosRepaso" matchStrategy="1" name="EjerciciosBasicos" qualified="false" references="true" similarDeclarations="false" stamp="1447695053766" textual="false" version="1.0"/>
+</session>

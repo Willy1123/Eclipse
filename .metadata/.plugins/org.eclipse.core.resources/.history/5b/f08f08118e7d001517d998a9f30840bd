@@ -1,0 +1,32 @@
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+
+import acm.program.*;
+import acm.graphics.*;
+
+/*
+ * Autor: Guillermo Blasco
+ * 
+ * Este programa es un ejemplo de cómo utilizar los
+ * eventos de ratón
+ */
+
+public class EjemploEventos extends GraphicsProgram{
+
+	GRect rectangulo;
+	
+	public void init() {
+		setSize(700,800);
+		//digo que voy a utilizar el ratón
+		addMouseListeners();
+		
+		rectangulo = new GRect(60, 10);
+		rectangulo.setFilled(true);
+		rectangulo.setFillColor(Color.BLUE);
+		add(rectangulo);
+	}
+	
+	public void mouseMoved (MouseEvent evento) {
+		rectangulo.setLocation(evento.getX(), evento.getY());
+	}
+}

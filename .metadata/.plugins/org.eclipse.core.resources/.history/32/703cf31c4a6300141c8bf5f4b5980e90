@@ -1,0 +1,21 @@
+
+public class Ejercicio3B extends karelMejorada2{
+	
+ public void run(){
+
+	 while (noBeepersPresent()){
+	 while (frontIsClear()){
+		 move();}
+	 if (facingEast()){
+	 turnLeft();
+	 move();
+	 turnLeft();
+	 }
+	 if (facingWest()){
+		 turnRight();
+		 move();
+		 turnRight();
+		 }
+ }
+ }
+}

@@ -1,0 +1,9 @@
+
+import stanford.karel.*;
+
+public class EjemploSuperKarel extends SuperKarel{
+
+	public void run() {
+		turnRight();
+	}
+}

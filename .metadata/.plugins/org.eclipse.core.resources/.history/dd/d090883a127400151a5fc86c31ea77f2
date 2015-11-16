@@ -1,0 +1,40 @@
+/*
+ * File: KarelMejorada.java
+ * ---------------------------
+ * la clase KarelMejorada extiende las acciones básicas
+ * de Karel para que cualquier subclase tenga acceso al método
+ * giraDerecha()
+ * además añade el método daVuelta() que gira 180 grados a Karel
+ */
+import stanford.karel.*;
+public class KarelMejorada extends Karel {
+	/**
+	 * gira a Karel 90 grados a la derecha.
+	 */
+	public void giraDerecha() {
+		turnLeft();
+		turnLeft();
+		turnLeft();
+	}
+
+	/**
+	 * gira a Karel 180 grados
+	 */
+	public void daVuelta() {
+		turnLeft();
+		turnLeft();
+	}
+
+	/**
+	 * rellenaAgujero supone que Karel está mirando hacia el este
+	 * pone un beeper debajo y se mueve a la derecha
+	 */
+	public void rellenaAgujero() {
+		giraDerecha();
+		move();
+		putBeeper();
+		daVuelta();
+		move();
+		giraDerecha();
+	}
+}

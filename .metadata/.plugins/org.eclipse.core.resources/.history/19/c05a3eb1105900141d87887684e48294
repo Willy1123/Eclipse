@@ -1,0 +1,14 @@
+
+
+public class ejercicioB extends karelMejorada2{
+
+
+	public void ReparaomaticDeluxe2000(){
+		while (frontIsClear()){
+		if (rightIsClear(){
+	rellenaAgujero();
+			}
+			move();
+			
+	}
+}

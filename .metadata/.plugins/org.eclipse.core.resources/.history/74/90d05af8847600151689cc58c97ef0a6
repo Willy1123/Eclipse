@@ -1,0 +1,10 @@
+
+public class EjemploOperadoresLogicos extends KarelMejorada{
+
+	public void run() {
+		while (frontIsClear() && noBeepersPresent()) {
+			move();
+			
+		}
+	}
+}

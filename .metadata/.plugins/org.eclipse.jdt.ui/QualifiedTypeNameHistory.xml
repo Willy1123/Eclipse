@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="acm.graphics.GLine"/>
+<fullyQualifiedTypeName name="acm.graphics.GOval"/>
+<fullyQualifiedTypeName name="java.awt.Cursor"/>
+<fullyQualifiedTypeName name="acm.graphics.GObject"/>
+<fullyQualifiedTypeName name="acm.graphics.GLabel"/>
+<fullyQualifiedTypeName name="acm.graphics.GTurtle"/>
+<fullyQualifiedTypeName name="acm.program.ConsoleProgram"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
+<fullyQualifiedTypeName name="acm.graphics.GRect"/>
+<fullyQualifiedTypeName name="acm.program.GraphicsProgram"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
+<fullyQualifiedTypeName name="acm.util.RandomGenerator"/>
+</qualifiedTypeNameHistroy>

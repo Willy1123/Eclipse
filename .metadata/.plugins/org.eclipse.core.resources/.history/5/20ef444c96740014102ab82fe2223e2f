@@ -1,0 +1,63 @@
+package principal;
+import java.awt.Color;
+
+import acm.graphics.GOval;
+import acm.graphics.GRect;
+import acm.program.*;
+
+
+
+
+
+
+
+
+
+
+
+public class FlappyBird extends GraphicsProgram{
+	
+	
+
+	private static final int ALTO_PANTALLA = 400;
+	private static final int ANCHO_PANTALLA = 800;
+	private static final int ALTO_PAJARO = 12;
+	
+double xVelocidad = -1;
+double yVelocidad = 1;
+	
+GOval pajaro;
+boolean gameOver = false;
+
+GRect columna1;
+GRect base1;
+
+	
+	
+	
+	
+	public void init(){
+		
+		setSize (ANCHO_PANTALLA, ALTO_PANTALLA);
+		addMouseListeners();
+		
+		pajaro= new GOval(ALTO_PAJARO, ALTO_PAJARO);
+		pajaro.setFillColor (Color.BLUE);
+		add (pajaro, ANCHO_PANTALLA / 2 -200, ALTO_PANTALLA);
+		
+		
+		
+		
+		
+	}
+	
+	
+	public void run(){
+		while (!gameOver){
+			pajaro.move(0,yVelocidad);
+			pause(10);
+			
+		}
+	}
+	
+}

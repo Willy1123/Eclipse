@@ -1,0 +1,78 @@
+package principal;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+
+
+import acm.graphics.GOval;
+import acm.graphics.GRect;
+import acm.program.*;
+
+
+
+public class FlappyBird extends GraphicsProgram{
+
+
+
+	private static final int ALTO_PANTALLA = 400;
+	private static final int ANCHO_PANTALLA = 800;
+	private static final int ALTO_PAJARO = 12;
+
+	double xVelocidad = -1;
+	double yVelocidad = 1;
+
+	GOval pajaro;
+	boolean gameOver = false;
+
+	GRect columna1;
+	GRect base1;
+
+
+
+
+
+	public void init(){
+
+		setSize (ANCHO_PANTALLA, ALTO_PANTALLA);
+		addMouseListeners();
+		addKeyListeners();
+
+		pajaro= new GOval(ALTO_PAJARO, ALTO_PAJARO);
+		pajaro.setFilled(true);
+		pajaro.setFillColor (Color.BLUE);
+		add (pajaro, 200 , ALTO_PANTALLA /2 -200);
+
+
+
+
+
+	}
+
+
+	public void run(){
+		while (!gameOver){
+			pajaro.move(0,yVelocidad);
+			yVelocidad++;
+			if (yVelocidad > 1){
+				yVelocidad = 1;
+			}
+			pause(7);
+
+		}
+
+
+	}
+
+	public void mouseClicked (MouseEvent evento){
+		yVelocidad =yVelocidad -8;
+	}
+	
+	public void keyPressed (KeyEvent evento){
+		yVelocidad =yVelocidad -8;
+	}
+	
+	}
+
+
+
+

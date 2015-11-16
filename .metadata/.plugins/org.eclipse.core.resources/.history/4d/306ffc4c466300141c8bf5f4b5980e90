@@ -1,0 +1,15 @@
+
+public class Ejercicio3B extends karelMejorada2{
+	
+ public void run(){
+	 busca();
+ }
+ 
+ private void busca(){
+	 while (noBeepersPresent());{
+	 while (frontIsClear()){
+		 move();}
+	 
+ }
+ }
+}

@@ -1,0 +1,17 @@
+import acm.program.*;
+import acm.graphics.*;
+
+/*
+ * Autor: Guillermo Blasco
+ * 
+ * Este programa es un ejemplo de cómo utilizar los
+ * eventos de ratón
+ */
+
+public class EjemploEventos extends GraphicsProgram{
+
+	public void init() {
+		setSize(500,800);
+		
+	}
+}

@@ -1,0 +1,44 @@
+
+import stanford.karel.*;
+
+public class EjemploSuperKarel extends SuperKarel{
+
+	public void run() {
+		while (true) {
+		while (frontIsClear()) {
+			if(random()) {
+				paintCorner(BLUE);
+			}
+			move();
+		}
+		turnLeft();
+		
+//		while(facingEast()) {
+//			paintCorner(RED);
+//			move();
+//			paintCorner(RED);
+//			if(frontIsBlocked()) {
+//				turnLeft();
+//			}
+//		}
+//		
+//		while(facingNorth()) {
+//			move();
+//			if(rightIsClear()) {
+//				turnRight();
+//			}
+//			if(rightIsBlocked()) {
+//			turnLeft();
+//			}
+//			paintCorner(RED);
+//		}
+//		while(notFacingEast()) {
+//			paintCorner(RED);
+//			move();
+//			if(frontIsBlocked()) {
+//				turnRight();
+//			}
+//		}
+	}
+	}
+}

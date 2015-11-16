@@ -1,0 +1,38 @@
+import java.awt.Color;
+
+import acm.program.*;
+import acm.graphics.*;
+import acm.util.*;
+/*
+ * Autor: Guillermo Blasco Pérez
+ * 
+ * La clase Animacion2 realiza la animación pero con un bucle while
+ */
+
+public class Animacion2 extends GraphicsProgram{
+
+	int velocidadX = 10;
+	int velocidadY = 20;
+
+	public void run() {
+
+		GOval pelota = new GOval (800,10);
+		pelota.setFilled(true);
+		pelota.setFillColor(Color.YELLOW);
+		add(pelota);
+
+		while(true) {
+			pelota.move(velocidadX, velocidadY);
+			pause(30);
+			//si la posición X de la pelota s superior a 1024
+			//es que ha tocado la pared derecha y tiene que vovler
+			if((pelota.getLocation().getX() > 1100) || (pelota.getLocation().getX() < 0)){
+				velocidadX = velocidadX * (-1);
+			}
+
+			if((pelota.getLocation().getY() > 880) || (pelota.getLocation().getY() < 100)){
+				velocidadY = velocidadY * (-1);
+			}
+		}
+	}
+}

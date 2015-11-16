@@ -1,0 +1,33 @@
+/*
+* File: Ejemplo1.java
+* ----------------------------
+* La clase Ejemplo1 extiende la clase Karel b‡sica
+* para Karel tome un beeper de la primera calle
+* y lo lleve al centro de la plataforma en la segunda calle
+*/
+import stanford.karel.*;
+public class Ejemplo1 extends Karel {
+	public void run() {
+		move(); //mueve a Karel una casilla para delante
+		pickBeeper(); //recoge el Beeper que hay en el camino
+		move(); 
+		turnLeft(); //Gira a Karel 90º a la Izququierda
+		move();
+		giraDerecha();  //Gira a Karel 90º a la Derecha
+		mueveDos();  //Mueve a Karel dos casillas para delante
+		putBeeper();
+		move();
+	}
+	
+	private void giraDerecha(){
+		turnLeft();
+		turnLeft();
+		turnLeft();
+	}
+	
+	private void mueveDos(){
+		move();
+		move();
+	}
+}
+

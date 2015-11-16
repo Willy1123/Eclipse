@@ -1,0 +1,10 @@
+/*
+ * ArreglaCarretera debe colocar un beeper en un agujero
+ */
+
+import standford.karel.Karel;
+public class ArreglaCarretera extends Karel{
+	public void run() {
+		
+	}
+}

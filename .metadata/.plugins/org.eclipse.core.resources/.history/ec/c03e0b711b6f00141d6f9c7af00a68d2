@@ -1,0 +1,35 @@
+
+/*Ésta clase se encarga de crear un piramide usando GRect comom ladrillos
+ * Parar pintar toda la piramide voy a utilizar dos bucles for anidados
+ * 
+ * 
+ */
+package principal;
+import acm.graphics.GRect;
+import acm.program.*;
+public class Piramide extends GraphicsProgram{
+	
+	
+	private  static final int ANCHO_LADRILLO = 30;
+	private  static final int ALTO_LADRILLO = 12;
+	private  static final int NUM_LADRILLOS_BASE = 14;
+	private  static final int ANCHO_PANTALLA = 1920;
+	private  static final int ALTO_PANTALLA = 1080;
+	
+	
+	public void run(){
+		
+		
+		
+		setSize(ANCHO_LADRILLO, ALTO_LADRILLO);
+		
+		for (int j=0; j<NUM_LADRILLOS_BASE; j++){
+			GRect ladrillo= new GRect(ANCHO_LADRILLO, ALTO_LADRILLO);
+	add (ladrillo, j*ANCHO_LADRILLO, ALTO_PANTALLA - ALTO_LADRILLO);
+	pause (120);
+			
+		}
+	}
+	
+
+}

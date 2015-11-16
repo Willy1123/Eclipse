@@ -1,0 +1,43 @@
+
+public class Ejercicio3B extends karelMejorada2{
+	
+ public void run(){
+	 while (noBeepersPresent()){
+	 buscaBeeper();}
+	 for (int i=0; i<4; i++){
+		 pintaCruz();}
+ }
+private void buscaBeeper(){
+	
+	 
+	 while (frontIsClear()){
+		 move();}
+	 if (facingEast()){
+	 turnLeft();
+	 move();
+	 turnLeft();
+	 }else{
+	 if (facingWest()){
+		 turnRight();
+		 move();
+		 turnRight();
+		 }
+ }}
+ 
+
+ 
+ private void pintaCruz(){
+	 while (frontIsClear()){
+		 move();
+		 putBeeper();
+		 }
+	 turnAround();
+	 while (beepersPresent()){
+		 move();
+	 }
+	 turnAround();
+	 move();
+	 turnLeft();
+	 
+ }
+}

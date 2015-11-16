@@ -1,0 +1,64 @@
+
+public class Ejercicio1 extends karelMejorada2{
+public void run() {
+
+	
+	folouDeLider();
+	//finalDeCarrera();
+}
+
+//Este algoritmo mueve a Karel hacia delante, comprueba la existencia de la aguja. Si la detecta procede a escalarla siguiendo su recorrido y al final salta, cambia de dirección para detectar la aguja de nuevo y continua siguiendola. 
+	public void folouDeLider(){
+		
+		while (noBeepersPresent()){
+		if (rightIsBlocked()){
+			if (frontIsClear()){
+			move();
+			}else{
+				
+				turnLeft();}
+			}else{
+		
+		turnRight();
+		
+		if (frontIsClear()){
+		move();
+		turnRight();
+		move();}
+		else{turnRight();
+		while(frontIsClear()){
+		move();}
+		turnLeft();
+		
+			}
+			}
+		}	
+
+	}
+	public void finalDeCarrera(){
+		turnAround();
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

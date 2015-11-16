@@ -1,0 +1,31 @@
+/*
+ * Autor Guillermo Blasco
+ * 
+ * ApilaBeepers recoge todos los beepers que hay en el mapa
+ * distribuidos en columnas
+ */
+public class ApilaBeepers extends KarelMejorada{
+
+	public void run() {
+		recogeTodosLosBeepers();
+		//dejaTodosLosBeepers();
+		//retornaAlInicio();
+	}
+	
+	private void recogeTodosLosBeepers(){
+		while(frontIsClear()) {
+			limpiaUnaColumna();
+			move();
+		}
+	}
+	
+	private void limpiaUnaColumna() {
+		move();
+		turnLeft();
+		while(beepersPresent()) {
+			pickBeeper();
+			move();
+		}
+	}
+}
+

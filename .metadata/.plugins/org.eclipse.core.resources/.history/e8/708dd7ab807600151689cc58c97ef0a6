@@ -1,0 +1,16 @@
+
+import stanford.karel.*;
+
+public class EjemploSuperKarel extends SuperKarel{
+
+	public void run() {
+		while(frontIsClear()) {
+			paintCorner(RED);
+			move();
+			paintCorner(RED);
+			if(frontIsBlocked()) {
+				turnLeft();
+			}
+		}
+	}
+}

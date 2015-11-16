@@ -1,0 +1,51 @@
+
+
+
+
+
+//CODINGBAT
+//CODINGBAT
+//CODINGBAT
+//CODINGBAT
+//CODINGBAT
+
+
+
+package principal;
+import acm.program.*;
+public class Ejercicio6 extends ConsoleProgram{
+	
+	
+	
+	
+	public void run(){
+		
+		println(posNeg(1, -1, false)); //true
+		println(posNeg(1, 1, false)); //true
+		println(posNeg(-4, -5, true)); //true
+	}
+		//posNeg recibe dos valores enteros 
+		//debe devolver verdadero si uno es negativo y el otro positivo
+		//Excepto si el tercer parametro es verdadero, en cuyo caso devolverá verdadero
+		//solo si ambos dos son negativos.
+		
+		private boolean posNeg (int a, int b, boolean negative){
+			
+			
+			if (a<0 ){
+				
+				if (b<0 && negative == true){
+					return true;}else{
+					return false;	
+					}
+				
+				
+			}
+			
+		}
+ 
+		
+		
+	}
+
+

@@ -1,0 +1,15 @@
+
+
+public class ejercicioB extends karelMejorada2{
+
+
+	public void run (){
+		while (frontIsClear()){	
+			if (rightIsClear()){
+				rellenaAgujero2();
+			}
+			move();
+
+		}
+	}
+}

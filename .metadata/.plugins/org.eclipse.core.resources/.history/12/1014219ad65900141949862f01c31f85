@@ -1,0 +1,51 @@
+/*
+ * Autor: Francisco Javier Croche de Acuña Durán
+ * El ejercicio 3 resuelve el problema de las columnas de beepers
+ */
+public class Ejercicio3 extends karelMejorada2{
+public void run() {
+	
+	recogeTodosLosBeepers();
+	// dejaLosBeepers();
+	// retornaAlInicio();
+}
+
+private void recogeTodosLosBeepers() {
+	
+	while (frontIsClear()){
+		limpiarUnaColumna();
+		move();
+	}
+}
+private void limpiarUnaColumna(){
+	turnLeft();
+	
+	//avanzar recogiendo beepers ahsta que no quede ninguno
+	
+	recogeBeepersUnaColumna();
+	
+	mediavuelta();
+	//avanzar hasta el suelo
+	
+	avanzaHastaElSuelo();
+	
+	
+}
+	private void recogeBeepersUnaColumna(){
+		while (beepersPresent()){
+			pickBeeper();
+			move();
+		}
+		
+		
+		
+	}
+	private void avanzaHastaElSuelo(){
+		while (frontIsClear()){
+			move();}
+		turnLeft();
+		
+		}
+	}
+
+

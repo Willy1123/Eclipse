@@ -1,0 +1,159 @@
+
+/*
+ * LA clase KarelMejorada2 tiene todo lo que tiene Karel y añade el metodo giraDerecha() 
+ */
+
+import stanford.karel.*;
+public class karelMejorada2 extends Karel{
+
+
+	/**
+	 * gira Karel 90 grados a la derecha
+	 */
+	public void giraderecha(){
+		turnLeft();
+		turnLeft();
+		turnLeft();
+	}
+
+	/**
+	 * da la media vuelta a Karel
+	 */
+	public void mediavuelta(){
+		turnLeft();
+		turnLeft();
+	}
+
+
+	/**
+	 * se pone a rellenar agujeros con beepers
+	 */
+	public void rellenaAgujero (){
+		giraderecha ();
+		move();
+		putBeeper();
+		mediavuelta();
+		move();
+		giraderecha();
+	}
+
+	
+	/**
+	 * crea fila de 5 beepers
+	 */
+	public void filad5(){
+putBeeper();
+move();
+putBeeper();
+move();
+putBeeper();
+move();
+putBeeper();
+move();
+putBeeper();
+
+}
+
+	public void filad3(){
+		
+		move();
+		putBeeper();
+		move();
+		putBeeper();
+		move();
+	
+		}
+	/**
+	 * escribe mi nombre con beepers
+	 */
+	public void croche() {
+		mediavuelta();
+		for (int i=0; i < 23; i++)
+			move();
+		turnLeft();
+		turnLeft();
+		turnLeft();
+		move();
+		move();
+		move();
+		filad5();
+		turnLeft();
+		mediavuelta();
+		filad3();
+		mediavuelta();
+	move();
+	turnLeft();
+	move();
+	putBeeper();
+	move();
+	turnLeft();
+	putBeeper();
+	mediavuelta();
+	move();
+	putBeeper();
+	mediavuelta();
+	move();
+	move();
+	move();
+	turnLeft();
+	mediavuelta();
+	move();
+	move();
+	mediavuelta();
+	filad5();
+	turnLeft();
+	mediavuelta();
+	move();
+	putBeeper();
+	move();
+	turnLeft();
+	mediavuelta();
+	filad5();
+	turnLeft();
+	move();
+	move();
+	turnLeft();
+	filad5();
+	turnLeft();
+	mediavuelta();
+	filad3();
+	turnLeft();
+	mediavuelta();
+	move();
+	move();
+	move();
+	move();
+	turnLeft();
+	mediavuelta();
+	move();
+	putBeeper();
+	move();
+	putBeeper();
+	mediavuelta();
+	move();
+	move();
+	move();
+	move();
+	move();
+	putBeeper();
+	move();
+	putBeeper();
+	turnLeft();
+	filad5();
+	turnLeft();
+	move();
+	putBeeper();
+	move();
+	putBeeper();
+	turnLeft();
+	move();
+	filad5();
+	
+	
+	
+	
+	
+		
+	
+	}
+}
