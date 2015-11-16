@@ -1,0 +1,29 @@
+import acm.program.*;
+public class EjerciciosBasicos extends ConsoleProgram{
+	
+/*	A1) Cuando las ardillas se reúnen para una fiesta, les gusta tener bellotas.
+	Una fiesta de ardillas tiene éxito cuando el número de bellotas es de entre 40 y 60,
+	ambos inclusive. A menos que sea el fin de semana, en cuyo caso no hay liminte de bellotas.
+	
+	Crea una función llamada fiesta Ardillas qeu reciba como pará metro el número de
+	bellotas y si es fin de semaa o no, y que devuelva true si la fiesta con los valores
+	dados tieen éxito, o false en caso contrario.
+*/	
+	
+	public boolean fiestaArdilla(int bellotas, boolean festivo) {
+		if(festivo) {
+			return true;
+		}
+		
+		if(bellotas >= 40 && bellotas <=60){
+			return true;
+		}
+		return false;
+	}
+	
+	public void run() {
+		println(fiestaArdilla(40, false));
+		println(fiestaArdilla(60, false));
+		println(fiestaArdilla(60, true));
+	}
+}

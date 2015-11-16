@@ -40,30 +40,9 @@ public class EjerciciosBasicos extends ConsoleProgram{
  * y si es tu cumpleaños o no, y que devuelva el valor correspondiente.
  */
 	
-	public int multa(int velocidad, boolean cumpleaños) {
-		if(velocidad <= 60 && !cumpleaños) {
-		return 0;
-		}
-		
-		if(velocidad<= 65 && cumpleaños) {
-			return 0;
-		}
-		
-		if(velocidad >= 61 && velocidad <= 80 && !cumpleaños) {
-			return 1;
-		}
-		
-		if(velocidad >= 66 && velocidad <= 85 && cumpleaños) {
-			return 1;
-		}
-		
-		
-		return 2;
-	}
-	
 	public void run() {
-		println(multa(60, false));
-		println(multa(65, true));
-		println(multa(85, true));
+		println(fiestaArdilla(40, false));
+		println(fiestaArdilla(60, false));
+		println(fiestaArdilla(60, true));
 	}
 }

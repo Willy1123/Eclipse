@@ -64,6 +64,6 @@ public class EjerciciosBasicos extends ConsoleProgram{
 	public void run() {
 		println(multa(60, false));
 		println(multa(65, true));
-		println(multa(85, true));
+		println(multa(90, true));
 	}
 }
