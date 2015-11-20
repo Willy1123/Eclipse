@@ -1,0 +1,32 @@
+
+public class EspiralKarel extends KarelMejorada{
+	
+	public void run() {
+		//Avanzar al Este y poner beepers alternados
+		avanzaEste();
+		//Avanzar al Norte y poner beepers alternados
+		//Avanzar al Oeste y poner beepers alternados
+		//Avanzar al Oeste y poner beepers alternados
+	}
+	
+	private void avanzaEste() {
+		while(frontIsClear() && noBeepersPresent()) {
+			putBeeper();
+			move();
+		}
+		
+		if(frontIsBlocked()) {
+			putBeeper();
+			turnLeft();
+		}
+	}
+	
+	private void avanzaNorte() {
+		while(frontIsClear()) {
+			move();
+			putBeeper();
+			
+		}
+	}
+
+}

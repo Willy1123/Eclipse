@@ -1,0 +1,23 @@
+import javax.swing.*;
+public class Main {
+	public static JFrame frame;
+	public static Game game;
+	
+
+	public static void main(String[] args) {
+		//Defino el tamaño de la ventana principal y la centro para q al abrir
+		//el juego aparezca siempre centrada
+		frame = new JFrame("Prueba");
+		frame.setSize(800, 600);
+		frame.setLocationRelativeTo(null);
+		
+		//Defino la ventana del juego, q esta inculida en la ventana principal
+		game = new Game();
+		game.setSize(frame.getSize());
+		frame.add(game);
+		
+		//Hago que el juego se vea
+		//frame.setVisible(true);
+	
+	}
+}

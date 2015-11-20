@@ -1,0 +1,20 @@
+import javax.swing.*;
+public class Main {
+	public static JFrame frame;
+	public static Game game;
+	
+
+	public static void main(String[] args) {
+		//Defino el tamaño de la ventana del juego y donde aparece la pantalla
+		frame = new JFrame("Prueba");
+		frame.setSize(600, 500);
+		frame.setLocationRelativeTo(null);
+		
+		game = new Game();
+		game.setSize(frame.getSize());
+		frame.add(game);
+		
+		frame.setVisible(true);
+	
+	}
+}
