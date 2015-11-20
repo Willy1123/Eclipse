@@ -11,7 +11,7 @@
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
 <fullyQualifiedTypeName name="acm.graphics.GRect"/>
-<fullyQualifiedTypeName name="acm.program.GraphicsProgram"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 <fullyQualifiedTypeName name="acm.util.RandomGenerator"/>
+<fullyQualifiedTypeName name="acm.program.GraphicsProgram"/>
 </qualifiedTypeNameHistroy>
