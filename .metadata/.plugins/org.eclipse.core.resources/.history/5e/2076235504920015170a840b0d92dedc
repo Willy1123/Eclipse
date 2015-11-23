@@ -1,0 +1,80 @@
+
+public class Fibonacci extends KarelMejorada{
+
+	public void run() {
+		while(frontIsClear()) {
+			putBeeper();
+			
+			
+		}
+	}
+
+	private void halfTurn() {
+	    turnLeft();
+	    turnLeft();
+	}
+
+	private void turnright() {
+	    iterate(3) {
+	        turnLeft();
+	    }
+	}
+
+	private void goBack() {
+	    halfTurn();
+	    move();
+	}
+
+	public void gotoCorner() {
+	    while (facingSouth()) {
+	        turnLeft();
+	    }
+	    while (frontIsClear()) {
+	        move();
+	    }
+	    turnright();
+	    while (frontIsClear()) {
+	        move();
+	    }
+	}
+
+	private void gotoStart() {
+	    gotoCorner();
+	    turnright();
+	    move();
+	    turnright();
+	    move();
+	}
+
+	private void copyPile(int dist) {
+	    if (nextToABeeper) {
+	        pickbeeper();
+	        copyPile(dist);
+	        putbeeper();
+	        goBack();
+	        iterate (pred(dist)) {
+	            move();
+	        }
+	        putbeeper();
+	        goBack();
+	        iterate (pred(dist)) {
+	            move();
+	        }
+	    } else {
+	        move();
+	        iterate (pred(dist)) {
+	            move();
+	        }
+	    }
+	}
+
+	private void fibonacci() {
+	    while (frontIsClear()) {
+	        copyPile(1);
+	        goBack();
+	        move();
+	        halfTurn();
+	        copyPile(2);
+	    }
+	}
+}

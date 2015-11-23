@@ -1,83 +1,94 @@
-
+/*
+ * Autor: Guillermo Blasco
+ * 
+ * En esta Clase, Karel se va a encontrar con una serie de "Agujas" y su misión
+ * es: Subir la aguja, "saltarla", y bajar por el otro lado de la aguja, terminando
+ * saltando todas las agujas, y parandose en la esquina inferior derecha.
+ */
 public class SaltaLasAgujas extends KarelMejorada{
 
 	public void run() {
-		//sube columna
-		/**
-		 * girar a la izquierda
-		 * avanzar hasta la cima
-		 * girar a la derecha
-		 */
+		//Siempre que Karel esté mirando al Este
+		while(facingEast()) {
+			//1. Avanza hasta encontrar una aguja y la sube
+			subeAguja();
 
-		//salta aguja
-		/**
-		 * mover 1
-		 */
-		//bajar columana
-		/**
-		 * descender hasta el suelo
-		 * girar a la derecha
-		 */
+			//2. Baja por el otro lado de la aguja
+			bajaAguja();
+		}
+
+		//3. Karel avanza hasta la posición final
+		termina();
+
+	}
+
+	/**
+	 * Éste metodo supone que karel está mirando hacia el Este
+	 * y tiene un muro delante
+	 */
+	private void subeAguja() {
+		// 1. Siempre que Karel esté mirando al Este, y no haya ningun muro delante
+		// Karel Avanza hasta encontrarse con un muro
+		while(frontIsClear() && facingEast()) {
+			move();
+		}
+
+		//2. Karel gira a la izquierda para quedarse mirando al Norte
 		turnLeft();
-		while(frontIsClear()) {
-			move();
 
-			subeLaAguja();
-			//saltaLaAguja();
-			bajaLaAguja();
+		//3. Karel avanza hasta llegar a lo alto de la Aguja.
+		while(facingNorth() && rightIsBlocked() && frontIsClear()) {
+
+			move();
 
 		}
 
-	}
-
-	private void subeLaAguja() {
-
-		while(rightIsBlocked() && frontIsClear()) {
-			move();
+		//4. Karel gira a la derecha para quedar mirando al Este
+		if(facingNorth() && rightIsClear()) {
+			turnRight();
 		}
-		turnRight();
-		if(frontIsClear()) {
+
+		//5. Karel Salta la Aguja
+		if(frontIsClear() && facingEast()) {
 			move();
 		}
 	}
 
-	private void bajaLaAguja() {
-		turnRight();
+	/**
+	 * Éste Método supone que Karel ha saltado la aguja y
+	 * está mirando hacia el Sur
+	 */
+	private void bajaAguja() {
+		//1. Karel gira a la derecha para mirar hacia el Suelo
+		if(facingEast()) {
+			turnRight();
+		}
+
+		//2. Karel avanza hasta llegar al Suelo
+		while(facingSouth() && frontIsClear()) {
+			move();
+		}
+
+		//3. Karel gira a la izquierda para mirar hacia el Este
+		if(facingSouth() && frontIsBlocked()) {
+			turnLeft();
+		}
+	}
+
+	/**
+	 * Este método supone que Karel se encuentra en la esquina superior derecha.
+	 * Karel da la vuelta, avanza hasta el suelo, y se queda mirando hacia el Este
+	 */
+	private void termina() {
+		//1. Karel Da la vuleta para mirar hacia el suelo
+		turnAround();
+
+		//2. Karel Avanza hasta llegar al suelo
 		while(frontIsClear()) {
 			move();
 		}
+
+		//3. Karel gira a la izquierda para terminar mirando al este
 		turnLeft();
 	}
 }
-
-//	private void subeLaAguja() {
-//		//			while(frontIsBlocked() && rightIsBlocked() && facingNorth()) {
-//		//			turnAround();
-//		//		}
-//		turnLeft();
-//
-//		while(frontIsClear() && rightIsBlocked()) {
-//			move();
-//			if(frontIsBlocked() && rightIsBlocked() && facingNorth()) {
-//				turnAround();
-//			}
-//		}
-//		turnRight();
-//	}
-//
-//	private void saltaLaAguja() {
-//		move();
-//	}
-//
-//	private void bajaLaAguja() {
-//		turnRight();
-//		while(frontIsClear()) {
-//			move();
-//		}
-//		turnLeft();
-//		while(frontIsClear()) {
-//			move();
-//		}
-//	}
-//
-//}

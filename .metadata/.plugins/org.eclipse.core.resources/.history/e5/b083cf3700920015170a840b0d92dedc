@@ -1,0 +1,20 @@
+
+public class Fibonacci extends KarelMejorada{
+
+	public void run() {
+		if(frontIsClear()) {
+			move();
+			recursiva();
+			putBeeper();
+		}
+	}
+
+	private void recursiva() {
+		if(frontIsClear()) {
+			move();
+			putBeeper();
+			recursiva();
+			
+		}
+	}
+}

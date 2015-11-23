@@ -45,10 +45,8 @@ public class Ejemplo1 extends ConsoleProgram{
 	//Tenemos un loro que habla
 	//El parámetro hora
 	
-	public boolean parrotTrouble(boolean talking, int hour) {
-		  
-	}
-	
+
+
 	public void run() {
 		println(sleepIn(false, false));
 	}
