@@ -1,0 +1,7 @@
+
+public class Cruz extends KarelMejorada{
+	
+	public void run() {
+		
+	}
+}
