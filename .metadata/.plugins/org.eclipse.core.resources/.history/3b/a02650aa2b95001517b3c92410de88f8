@@ -1,0 +1,9 @@
+import acm.program.*;
+import acm.graphics.*;
+public class ContruirRobot extends GraphicsProgram{
+	
+	public void run() {
+		
+	}
+
+}

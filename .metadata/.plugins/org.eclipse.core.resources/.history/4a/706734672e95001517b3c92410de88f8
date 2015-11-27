@@ -1,0 +1,16 @@
+/*
+ * Esta es la clase principal, que llama a las demás clases
+ * para poder construir el robot
+ */
+import acm.program.*;
+import acm.graphics.*;
+
+
+public class ContruirRobot extends GraphicsProgram{
+	
+	public void run() {
+		CaraRobot c = new CaraRobot();
+		add(c);
+	}
+
+}

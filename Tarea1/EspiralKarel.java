@@ -39,8 +39,7 @@ public class EspiralKarel extends KarelMejorada{
 		if(beepersPresent()) {
 			turnLeft();
 			move();
-			turnRight();
-		}
+			turnRight();		}
 		while(facingNorth() && frontIsClear() && noBeepersPresent()) {
 			putBeeper();
 			move();
