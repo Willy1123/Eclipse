@@ -400,3 +400,42 @@ java.lang.NullPointerException
 	at org.eclipse.egit.core.op.DisconnectProviderOperation.execute(DisconnectProviderOperation.java:70)
 	at org.eclipse.egit.core.internal.job.JobUtil$1.run(JobUtil.java:53)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2015-11-27 19:09:42.913
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at edu.stanford.cs106.LogChangeListener.getRepository(LogChangeListener.java:165)
+	at edu.stanford.cs106.LogChangeListener.resourceChanged(LogChangeListener.java:133)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:378)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1498)
+	at org.eclipse.core.internal.resources.Project.touch(Project.java:1409)
+	at org.eclipse.team.core.RepositoryProvider.map(RepositoryProvider.java:132)
+	at org.eclipse.egit.core.op.ConnectProviderOperation.execute(ConnectProviderOperation.java:154)
+	at org.eclipse.egit.ui.internal.sharing.SharingWizard$2.run(SharingWizard.java:131)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.core.resources 4 2 2015-11-27 19:09:42.929
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at edu.stanford.cs106.LogChangeListener.getRepository(LogChangeListener.java:165)
+	at edu.stanford.cs106.LogChangeListener.resourceChanged(LogChangeListener.java:133)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:378)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1498)
+	at org.eclipse.core.internal.resources.File.appendContents(File.java:58)
+	at org.eclipse.core.internal.resources.File.appendContents(File.java:73)
+	at org.eclipse.egit.core.op.IgnoreOperation.addIgnore(IgnoreOperation.java:166)
+	at org.eclipse.egit.core.op.IgnoreOperation.execute(IgnoreOperation.java:96)
+	at org.eclipse.egit.core.op.ConnectProviderOperation.autoIgnoreDerivedResources(ConnectProviderOperation.java:180)
+	at org.eclipse.egit.core.op.ConnectProviderOperation.execute(ConnectProviderOperation.java:155)
+	at org.eclipse.egit.ui.internal.sharing.SharingWizard$2.run(SharingWizard.java:131)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
