@@ -1,0 +1,69 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+
+import acm.graphics.GOval;
+import acm.graphics.GRect;
+import acm.program.*;
+
+/*
+ * Esta clase lleva todo lo que tiene que ver con la barra que mueve
+ * el jugador con el ratón
+ */
+
+
+public class Player {
+	private static int ANCHO_PANTALLA=800;
+	private static int ALTO_PANTALLA=600;
+	private static int ANCHO_CURSOR = 60;
+	public static int standartPlayerWidth = 80;
+	public static int standartPlayerHeigh = 20;
+	private Rectangle hitBox;
+	
+	double xVelocidad = 3;  //velocidad en el eje x
+	double yVelocidad = -3;  //velocidad en el eje y
+	
+	int alto_pelota = 20;
+	
+	GRect cursor;
+	GOval pelota;
+
+	public Player(int x, int y, int width, int height) {
+		hitBox = new Rectangle(x, y, width, height);
+	}
+	//Mueve la barra del jugador
+	private boolean chequeaCursor(){
+		if (getElementAt(pelota.getX(), pelota.getY()+alto_pelota)==cursor){
+			yVelocidad = -yVelocidad;	
+		}
+		else if (getElementAt(pelota.getX()+alto_pelota, pelota.getY()+alto_pelota)==cursor){
+			yVelocidad = -yVelocidad;	
+		}
+		else if (getElementAt(pelota.getX(), pelota.getY())==cursor){
+			xVelocidad = -xVelocidad;	
+		}
+		else if (getElementAt(pelota.getX()+alto_pelota, pelota.getY())==cursor){
+			xVelocidad = -xVelocidad;	
+		}else {
+			return false;
+		} 
+		return true;
+	}
+	
+	//mueve el cursor siguiendo la posición del ratón
+		public void mouseMoved (MouseEvent evento){
+			if( (evento.getX()+ANCHO_CURSOR) <= ANCHO_PANTALLA){
+				cursor.setLocation(evento.getX(),ALTO_PANTALLA-100);
+			}
+		}
+
+	public void setY(int y) {
+		hitBox.y = y;
+	}
+
+	public void render(Graphics g) {
+		g.setColor(Color.GRAY);
+		g.fillRect(hitBox.x, hitBox.y, hitBox.width, hitBox.height);
+	}
+
+}

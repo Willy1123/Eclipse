@@ -3,7 +3,15 @@ public class Fibonacci extends KarelMejorada{
 
 	public void run() {
 		move();
-		move();
+		while(frontIsClear()) {
+		pasaBeepers();
+		}
+	}
+	
+	private void pasaBeepers() {
+		while(beepersPresent()) {
+			move();
+		}
 	}
 
 

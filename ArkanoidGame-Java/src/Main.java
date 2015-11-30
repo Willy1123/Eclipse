@@ -1,10 +1,11 @@
 import javax.swing.*;
+import acm.program.*;
 /*
  * Esta Clase, es la clase principal, es la que abre el juego
  * y todos los códigos
  */
 
-public class Main {
+public class Main extends GraphicsProgram{
 	public static JFrame frame;
 	public static Game game;
 	

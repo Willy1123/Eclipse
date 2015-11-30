@@ -24,14 +24,19 @@ public class TablejorAjedrez extends acm.program.GraphicsProgram{
 	private static int TAMANIO_CASILLA = 30;
 
 	public void run() {
+		//Creo un bucle for para crear las columnas
 		for(int j=0; j< N_COLUMNAS; j++) {
+			//Creo otro bucle for, para crear las filas
 			for(int i=0; i< N_FILAS; i++) {
+				//defino la casilla
 				GRect casilla = new GRect(TAMANIO_CASILLA, TAMANIO_CASILLA);
 				if( (i+j)%2 == 1) {
 					casilla.setFilled(true);
 				}
 				casilla.setLocation(i*TAMANIO_CASILLA, j*TAMANIO_CASILLA);
+				//Añade la Casilla
 				add(casilla);
+				pause(10);
 			}
 		}
 	}

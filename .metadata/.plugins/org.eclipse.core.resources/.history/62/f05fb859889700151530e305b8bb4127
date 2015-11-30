@@ -1,0 +1,18 @@
+
+public class Fibonacci extends KarelMejorada{
+
+	public void run() {
+		while(frontIsClear()) {
+		move();
+		pasaBeepers();
+		}
+	}
+	
+	private void pasaBeepers() {
+		while(beepersPresent()) {
+			move();
+		}
+	}
+
+
+}

@@ -2,20 +2,21 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="acm.graphics.GLine"/>
-<fullyQualifiedTypeName name="acm.graphics.GOval"/>
 <fullyQualifiedTypeName name="java.awt.Cursor"/>
 <fullyQualifiedTypeName name="acm.graphics.GObject"/>
 <fullyQualifiedTypeName name="acm.graphics.GLabel"/>
 <fullyQualifiedTypeName name="acm.graphics.GTurtle"/>
 <fullyQualifiedTypeName name="acm.program.ConsoleProgram"/>
-<fullyQualifiedTypeName name="acm.graphics.GRect"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 <fullyQualifiedTypeName name="acm.util.RandomGenerator"/>
-<fullyQualifiedTypeName name="acm.program.GraphicsProgram"/>
 <fullyQualifiedTypeName name="java.awt.Graphics"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.api.impl.NameConverter.Standard"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.awt.Event"/>
 <fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseAdapter"/>
+<fullyQualifiedTypeName name="acm.graphics.GRect"/>
+<fullyQualifiedTypeName name="acm.graphics.GOval"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="acm.graphics.GCompound"/>
+<fullyQualifiedTypeName name="acm.program.GraphicsProgram"/>
 </qualifiedTypeNameHistroy>
