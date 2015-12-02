@@ -1,5 +1,6 @@
 
 import acm.program.*;
+import acm.util.RandomGenerator;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -28,12 +29,18 @@ public class Arcanoid extends GraphicsProgram{
 	// cursor
 	GImage cursor = new GImage("cursor.png");
 
+	// Random
+		RandomGenerator aleatorio = new RandomGenerator();
+	
 	// pelota
-	int alto_pelota = 10;
-	GOval pelota;
-	double xVelocidad = 3; // velocidad de la pelota en el eje x
-	double yVelocidad = -3; // velocidad de la pelota en el eje y
+	int ancho_pelota = 28;
+	int alto_pelota = 29;
+	GImage pelota = new GImage("pelota.png");
+	double xVelocidad = 3 + aleatorio.nextInt(3); // velocidad de la pelota en el eje x
+	double yVelocidad = -4 + aleatorio.nextInt(-5); // velocidad de la pelota en el eje y
 
+	
+	
 	public void init(){
 		setSize(ANCHO_PANTALLA, ALTO_PANTALLA);
 
@@ -49,16 +56,15 @@ public class Arcanoid extends GraphicsProgram{
 		add(fondoJuego, 0, 0);
 		
 		pintaPiramide();
-		pelota = new GOval(alto_pelota, alto_pelota);
-		pelota.setFilled(true);
-		pelota.setColor(Color.ORANGE);
-		pelota.setLocation(ANCHO_PANTALLA/2, ALTO_PANTALLA- 200);
-		add(pelota);
-
-		addMouseListeners();
 		
 		cursor.setLocation(ANCHO_PANTALLA/2, ALTO_PANTALLA - 150);
 		add(cursor);
+		addMouseListeners();
+		
+		//pelota.setLocation(aleatorio.nextInt(ANCHO_PANTALLA/2 + 200), aleatorio.nextInt(ALTO_PANTALLA - 200));
+		add(pelota, ANCHO_PANTALLA/2, ALTO_PANTALLA - 220);
+		
+		
 		
 	}
 
@@ -89,6 +95,8 @@ public class Arcanoid extends GraphicsProgram{
 		for (int j=0; j<LADRILLOS_BASE; j++){
 			for (int i=j; i<LADRILLOS_BASE; i++){
 				GRect ladrillo = new GRect (ANCHO_LADRILLO,ALTO_LADRILLO);
+				ladrillo.setFilled(true);
+				ladrillo.setColor(aleatorio.nextColor());
 				add (ladrillo,i*ANCHO_LADRILLO-x,y+j*ALTO_LADRILLO);
 				//pause(60);
 			}
@@ -144,7 +152,8 @@ public class Arcanoid extends GraphicsProgram{
 		}
 		else if (getElementAt(pelota.getX()+alto_pelota, pelota.getY())==cursor){
 			xVelocidad = -xVelocidad;	
-		}else {
+		}
+		else {
 			return false;
 		} 
 		return true;
@@ -191,7 +200,7 @@ public class Arcanoid extends GraphicsProgram{
 		auxiliar = getElementAt(posX, posY);
 
 		// Chequeamos los ladrillos
-		if ((auxiliar != cursor) && (auxiliar != fondoJuego)) {
+		if ((auxiliar != cursor) && (auxiliar != fondoJuego) && (auxiliar != pelota)) {
 			remove(auxiliar);
 			if (direccion == 'y') {
 				yVelocidad = -yVelocidad;
