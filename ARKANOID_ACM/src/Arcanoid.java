@@ -100,7 +100,7 @@ public class Arcanoid extends GraphicsProgram{
 
 		while (!gameOver) {
 			pelota.move(xVelocidad, yVelocidad);
-			//cursor.setLocation(pelota.getX() - cursor.getWidth()/2, ALTO_PANTALLA - 150);
+			cursor.setLocation(pelota.getX() - cursor.getWidth()/2, ALTO_PANTALLA - 150);
 			// Comprobamos si la pelota choca con alguno de los elementos
 			chequeaColision();
 //			GLabel marcador = new GLabel(""+ puntos);
@@ -267,23 +267,12 @@ public class Arcanoid extends GraphicsProgram{
 		return (choque);
 	}
 
-
-
-
-
-
-
-
 	//mueve el cursor siguiendo la posición del ratón
 	public void mouseMoved (MouseEvent evento){
 		if( (evento.getX()+ANCHO_CURSOR) <= ANCHO_PANTALLA){
 			cursor.setLocation(evento.getX(),cursor.getY());
 		}
 	}
-
-
-
-
 
 
 }
