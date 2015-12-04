@@ -6659,3 +6659,50 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.security 1 0 2015-12-04 23:32:28.598
+!MESSAGE New keyring password generated. 
+
+!ENTRY org.eclipse.team.ui 4 0 2015-12-04 23:33:22.155
+!MESSAGE Error creating Synchronization Git:
+!STACK 1
+org.eclipse.team.core.TeamException: Error creating Synchronization Git:
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager$ParticipantInstance.instantiate(SynchronizeManager.java:253)
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager$ParticipantInstance.getParticipant(SynchronizeManager.java:217)
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager.removeMatchingParticipant(SynchronizeManager.java:370)
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager.addSynchronizeParticipants(SynchronizeManager.java:347)
+	at org.eclipse.egit.ui.internal.synchronize.GitModelSynchronize$2.done(GitModelSynchronize.java:275)
+	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:42)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:113)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:151)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:655)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:71)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.team.core.RepositoryProvider.getProvider(RepositoryProvider.java:491)
+	at org.eclipse.egit.core.project.GitProjectData.get(GitProjectData.java:203)
+	at org.eclipse.egit.ui.internal.synchronize.GitModelSynchronizeParticipant.getRepositoryForPath(GitModelSynchronizeParticipant.java:395)
+	at org.eclipse.egit.ui.internal.synchronize.GitModelSynchronizeParticipant.restoreSynchronizationData(GitModelSynchronizeParticipant.java:370)
+	at org.eclipse.egit.ui.internal.synchronize.GitModelSynchronizeParticipant.init(GitModelSynchronizeParticipant.java:339)
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager$ParticipantInstance.instantiate(SynchronizeManager.java:245)
+	... 10 more
+!SUBENTRY 1 org.eclipse.team.core 4 0 2015-12-04 23:33:22.165
+!MESSAGE Error creating Synchronization Git:
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.team.core.RepositoryProvider.getProvider(RepositoryProvider.java:491)
+	at org.eclipse.egit.core.project.GitProjectData.get(GitProjectData.java:203)
+	at org.eclipse.egit.ui.internal.synchronize.GitModelSynchronizeParticipant.getRepositoryForPath(GitModelSynchronizeParticipant.java:395)
+	at org.eclipse.egit.ui.internal.synchronize.GitModelSynchronizeParticipant.restoreSynchronizationData(GitModelSynchronizeParticipant.java:370)
+	at org.eclipse.egit.ui.internal.synchronize.GitModelSynchronizeParticipant.init(GitModelSynchronizeParticipant.java:339)
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager$ParticipantInstance.instantiate(SynchronizeManager.java:245)
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager$ParticipantInstance.getParticipant(SynchronizeManager.java:217)
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager.removeMatchingParticipant(SynchronizeManager.java:370)
+	at org.eclipse.team.internal.ui.synchronize.SynchronizeManager.addSynchronizeParticipants(SynchronizeManager.java:347)
+	at org.eclipse.egit.ui.internal.synchronize.GitModelSynchronize$2.done(GitModelSynchronize.java:275)
+	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:42)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:113)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:151)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:655)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:71)
