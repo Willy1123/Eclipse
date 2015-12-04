@@ -237,15 +237,16 @@ public class Arcanoid extends GraphicsProgram{
 
 		int pelotaX = (int) pelota.getX();
 		int pelotaY = (int) pelota.getY();
-		int lado = alto_pelota;
+		int alto = alto_pelota;
+		int ancho = ancho_pelota;
 
 		// si chequea posicion devuelve false sigue mirando el resto de puntos
 		//de la pelota
 
-		if( !chequeaPosicion(pelotaX, pelotaY,'y')){
-			if( !chequeaPosicion(pelotaX+lado, pelotaY-1,'y')){
-				if( !chequeaPosicion(pelotaX-1, pelotaY+lado,'x')){
-					if( !chequeaPosicion(pelotaX+lado, pelotaY+lado,'y')){
+		if( !chequeaPosicion(pelotaX+ancho/2, pelotaY,'y')){
+			if( !chequeaPosicion(pelotaX+ancho, pelotaY+alto/2,'x')){
+				if( !chequeaPosicion(pelotaX, pelotaY+alto/2,'x')){
+					if( !chequeaPosicion(pelotaX+ancho/2, pelotaY+alto,'y')){
 					}
 				}
 			}
