@@ -16,16 +16,24 @@ public class Arcanoid extends GraphicsProgram{
 	GImage fondoJuego = new GImage("Fondo_Juego.jpg");
 	GImage gameOver1 = new GImage("GameOver.png");
 	GImage gameWin = new GImage("GameWin.png");
+	GImage warning = new GImage("Warning.png");
 
 	// Pantalla.
 	private static int ANCHO_PANTALLA = 1024;
 	private static int ALTO_PANTALLA = 768;
 
 	// Piramide
-	private static final int ANCHO_LADRILLO = 60;
-	private static final int ALTO_LADRILLO = 30;
+	private static final int ANCHO_LADRILLO = 80;
+	private static final int ALTO_LADRILLO = 33;
 	private static final int LADRILLOS_BASE = 9;
+	
 
+	//ladrillos
+	int ladrillos = 45;
+	int cuentaLadrillos = 0;
+	
+	private static int ANCHO_WARNING = 80;
+	
 	// Cursor
 	private static int ANCHO_CURSOR = 150;
 	private static int ALTO_CURSOR = 100;
@@ -42,14 +50,14 @@ public class Arcanoid extends GraphicsProgram{
 	double xVelocidad = 4 + aleatorio.nextInt(5); // velocidad de la pelota en el eje x
 	double yVelocidad = -4 + aleatorio.nextInt(-5); // velocidad de la pelota en el eje y
 
-	
+
 	//marcador
 	int puntos = 0;
 	GLabel marcador = new GLabel(""+ puntos);
-	
+
 	//Fuente
 	Font fuente;
-	
+
 	//uso una variable booleana para indicar que se ha terminado 
 	//la partida
 	boolean gameOver = false;
@@ -67,9 +75,9 @@ public class Arcanoid extends GraphicsProgram{
 		remove (mensaje);
 
 		add(fondoJuego, 0, 0);
-		
+
 		pintaPiramide();
-		
+
 		//añado el marcador
 		try{
 			fuente = Font.createFont(Font.TRUETYPE_FONT, 
@@ -80,8 +88,8 @@ public class Arcanoid extends GraphicsProgram{
 		marcador.setLocation(ANCHO_PANTALLA - 200, 50);
 		add(marcador);
 		marcador.setLabel("PUNTOS: "+puntos);
-		
-		
+
+
 
 		cursor.setLocation(ANCHO_PANTALLA/2, ALTO_PANTALLA - 150);
 		add(cursor);
@@ -103,15 +111,12 @@ public class Arcanoid extends GraphicsProgram{
 			//cursor.setLocation(pelota.getX() - cursor.getWidth()/2, ALTO_PANTALLA - 150);
 			// Comprobamos si la pelota choca con alguno de los elementos
 			chequeaColision();
-//			GLabel marcador = new GLabel(""+ puntos);
-//			marcador.setColor(Color.RED);
-//			marcador.setFont(fuente.deriveFont(0, 20));
-//			marcador.setLocation(ANCHO_PANTALLA - 100, 50);
-//			add(marcador);
+
+			pintaBarrera();
 			// Ponemos una pausa para limitar la velocidad
 			pause(20);
-			
-			if(puntos == 2250){
+
+			if(puntos == ladrillos*50){
 				gameOver=true;
 				add(gameWin);
 			}
@@ -123,7 +128,7 @@ public class Arcanoid extends GraphicsProgram{
 
 		}
 
-//		add(gameOver1);
+		//		add(gameOver1);
 	}
 
 
@@ -134,7 +139,7 @@ public class Arcanoid extends GraphicsProgram{
 	 */
 	private void pintaPiramide(){
 		int x= -(ANCHO_PANTALLA - LADRILLOS_BASE*ANCHO_LADRILLO) /2;
-		int y= 0;
+		int y= 50;
 
 		for (int j=0; j<LADRILLOS_BASE; j++){
 			for (int i=j; i<LADRILLOS_BASE; i++){
@@ -142,11 +147,26 @@ public class Arcanoid extends GraphicsProgram{
 				ladrillo.setFilled(true);
 				ladrillo.setColor(aleatorio.nextColor());
 				add (ladrillo,i*ANCHO_LADRILLO-x,y+j*ALTO_LADRILLO);
-				//pause(60);
+				//				GImage warning = new GImage("Warning.png");
+				//				add(warning,i*ANCHO_LADRILLO-x,y+j*ALTO_LADRILLO);
+				pause(10);
 			}
 			x = x+ANCHO_LADRILLO/2;
 		}
 	}
+
+	private void pintaBarrera(){
+		int x= -(ANCHO_PANTALLA - LADRILLOS_BASE*ANCHO_LADRILLO) /2;
+//		int x= -70;
+		int y = ALTO_PANTALLA - 300;
+		for (int j=0; j<LADRILLOS_BASE; j++){
+			if(puntos == 50){
+				GImage warning = new GImage("Warning.png");
+				add(warning, j*ANCHO_LADRILLO-x,y+ALTO_LADRILLO);
+			}
+		}
+	}
+
 
 
 	private void chequeaColision(){
@@ -247,12 +267,14 @@ public class Arcanoid extends GraphicsProgram{
 		auxiliar = getElementAt(posX, posY);
 
 		// Chequeamos los ladrillos
-		if ((auxiliar != cursor) && (auxiliar != fondoJuego) && (auxiliar != pelota) && (auxiliar != null) && (auxiliar != marcador) ) {
+		if ((auxiliar != cursor) && (auxiliar != fondoJuego) && (auxiliar != pelota) && (auxiliar != null) && (auxiliar != marcador)) {
 			remove(auxiliar);
-			puntos = puntos + 50;
+			cuentaLadrillos++;
+			if(auxiliar.getY() < ALTO_PANTALLA -300){
+				puntos = puntos + 50;
+			}
 			marcador.setLabel("PUNTOS: "+puntos);
-			
-//			remove(marcador);
+
 			if (direccion == 'y') {
 				yVelocidad = -yVelocidad;
 			} else {
