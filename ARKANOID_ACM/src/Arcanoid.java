@@ -11,9 +11,9 @@ import acm.graphics.*;
 public class Arcanoid extends GraphicsProgram{
 
 	//Imagenes varias
-	GImage imagenFondo = new GImage("imagenes/espacio1.jpg");
-	GImage imagenFondo2 = new GImage("imagenes/ECD.gif");
+	GImage imagenFondo = new GImage("Fondo_Intro.jpg");
 	GImage fondoJuego = new GImage("Fondo_Juego.jpg");
+	GImage ladrillo = new GImage("ladrillo.png");
 	GImage gameOver1 = new GImage("GameOver.png");
 	GImage gameWin = new GImage("GameWin.png");
 
@@ -37,7 +37,7 @@ public class Arcanoid extends GraphicsProgram{
 
 	// pelota
 	int ancho_pelota = 28;
-	int alto_pelota = 29;
+	int alto_pelota = 28;
 	GImage pelota = new GImage("pelota.png");
 	double xVelocidad = 4 + aleatorio.nextInt(5); // velocidad de la pelota en el eje x
 	double yVelocidad = -4 + aleatorio.nextInt(-5); // velocidad de la pelota en el eje y
@@ -46,6 +46,10 @@ public class Arcanoid extends GraphicsProgram{
 	//marcador
 	int puntos = 0;
 	GLabel marcador = new GLabel(""+ puntos);
+	
+	//vidas
+	int vida = 3;
+	GLabel vidas = new GLabel(""+vida);
 	
 	//Fuente
 	Font fuente;
@@ -58,8 +62,15 @@ public class Arcanoid extends GraphicsProgram{
 		setSize(ANCHO_PANTALLA, ALTO_PANTALLA);
 
 		add(imagenFondo, 0, 0);
+		try{
+			fuente = Font.createFont(Font.TRUETYPE_FONT, 
+					getClass().getResourceAsStream("CASTELAR.ttf"));
+		} catch (Exception e) {}
 		GLabel mensaje = new GLabel (" Haz clic con el botón del ratón");
-		add(mensaje, 100, 200);
+		mensaje.setColor(Color.RED);
+		mensaje.setFont(fuente.deriveFont(0, 20));
+		mensaje.setLocation(ANCHO_PANTALLA/4 + 40, ALTO_PANTALLA/2 -60);
+		add(mensaje);
 		waitForClick();
 
 		//cambio a la segunda imagen porque ya han hecho clic
@@ -81,8 +92,18 @@ public class Arcanoid extends GraphicsProgram{
 		add(marcador);
 		marcador.setLabel("PUNTOS: "+puntos);
 		
+		//añado las vidas
+		try{
+			fuente = Font.createFont(Font.TRUETYPE_FONT, 
+					getClass().getResourceAsStream("CASTELAR.ttf"));
+		} catch (Exception e) {}
+		vidas.setColor(Color.RED);
+		vidas.setFont(fuente.deriveFont(0, 20));
+		vidas.setLocation(50, 50);
+		add(vidas);
+		vidas.setLabel("VIDAS: "+vida);
 		
-
+		//añado el cursor
 		cursor.setLocation(ANCHO_PANTALLA/2, ALTO_PANTALLA - 150);
 		add(cursor);
 		addMouseListeners();
@@ -90,33 +111,40 @@ public class Arcanoid extends GraphicsProgram{
 		//pelota.setLocation(aleatorio.nextInt(ANCHO_PANTALLA/2 + 200), aleatorio.nextInt(ALTO_PANTALLA - 200));
 		add(pelota, ANCHO_PANTALLA/2, ALTO_PANTALLA - 220);
 
-
-
 	}
 
 	public void run() {
-
-
+		
 
 		while (!gameOver) {
+			
 			pelota.move(xVelocidad, yVelocidad);
 			//cursor.setLocation(pelota.getX() - cursor.getWidth()/2, ALTO_PANTALLA - 150);
 			// Comprobamos si la pelota choca con alguno de los elementos
 			chequeaColision();
-//			GLabel marcador = new GLabel(""+ puntos);
-//			marcador.setColor(Color.RED);
-//			marcador.setFont(fuente.deriveFont(0, 20));
-//			marcador.setLocation(ANCHO_PANTALLA - 100, 50);
-//			add(marcador);
+			
+			
 			// Ponemos una pausa para limitar la velocidad
 			pause(20);
+			
+			if(pelota.getY() > ALTO_PANTALLA) {
+				
+				pelota.setLocation(ANCHO_PANTALLA/2, ALTO_PANTALLA - 300);
+				
+				vida = vida - 1;
+				vidas.setLabel("VIDAS: "+vida);
+				waitForClick();
+			}
+			
 			
 			if(puntos == 2250){
 				gameOver=true;
 				add(gameWin);
 			}
 
-			if(pelota.getY() > ALTO_PANTALLA) {
+			
+			
+			if(vida == 0) {
 				gameOver = true;
 				add(gameOver1);
 			}
@@ -134,13 +162,14 @@ public class Arcanoid extends GraphicsProgram{
 	 */
 	private void pintaPiramide(){
 		int x= -(ANCHO_PANTALLA - LADRILLOS_BASE*ANCHO_LADRILLO) /2;
-		int y= 0;
+		int y= 50;
 
 		for (int j=0; j<LADRILLOS_BASE; j++){
 			for (int i=j; i<LADRILLOS_BASE; i++){
-				GRect ladrillo = new GRect (ANCHO_LADRILLO,ALTO_LADRILLO);
-				ladrillo.setFilled(true);
-				ladrillo.setColor(aleatorio.nextColor());
+				GImage ladrillo = new GImage("ladrillo.png");
+//				GRect ladrillo = new GRect (ANCHO_LADRILLO,ALTO_LADRILLO);
+//				ladrillo.setFilled(true);
+//				ladrillo.setColor(aleatorio.nextColor());
 				add (ladrillo,i*ANCHO_LADRILLO-x,y+j*ALTO_LADRILLO);
 				//pause(60);
 			}
@@ -217,20 +246,30 @@ public class Arcanoid extends GraphicsProgram{
 
 		int pelotaX = (int) pelota.getX();
 		int pelotaY = (int) pelota.getY();
-		int lado = alto_pelota;
+		int alto = alto_pelota;
+		int ancho = ancho_pelota;
 
 		// si chequea posicion devuelve false sigue mirando el resto de puntos
 		//de la pelota
 
 		if( !chequeaPosicion(pelotaX, pelotaY,'y')){
-			if( !chequeaPosicion(pelotaX+lado, pelotaY-1,'y')){
-				if( !chequeaPosicion(pelotaX-1, pelotaY+lado,'x')){
-					if( !chequeaPosicion(pelotaX+lado, pelotaY+lado,'y')){
+			if( !chequeaPosicion(pelotaX+alto, pelotaY,'y')){
+				if( !chequeaPosicion(pelotaX, pelotaY+alto,'x')){
+					if( !chequeaPosicion(pelotaX+alto, pelotaY+alto,'y')){
+						if( !chequeaPosicion(pelotaX+ancho/2, pelotaY,'y')){
+							if( !chequeaPosicion(pelotaX+ancho, pelotaY+alto/2,'x')){
+								if( !chequeaPosicion(pelotaX, pelotaY+alto/2,'x')){
+									if( !chequeaPosicion(pelotaX+ancho/2, pelotaY+alto,'y')){
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 		}
 	}
+
 
 
 
@@ -247,7 +286,7 @@ public class Arcanoid extends GraphicsProgram{
 		auxiliar = getElementAt(posX, posY);
 
 		// Chequeamos los ladrillos
-		if ((auxiliar != cursor) && (auxiliar != fondoJuego) && (auxiliar != pelota) && (auxiliar != null) && (auxiliar != marcador) ) {
+		if ((auxiliar != cursor) && (auxiliar != fondoJuego) && (auxiliar != pelota) && (auxiliar != null) && (auxiliar != marcador) && (auxiliar != vidas)) {
 			remove(auxiliar);
 			puntos = puntos + 50;
 			marcador.setLabel("PUNTOS: "+puntos);
